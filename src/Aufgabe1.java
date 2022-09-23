@@ -30,15 +30,15 @@ public class Aufgabe1 {
 	}
 
 	/**
-	 * Forces the user to select text- and patternfile and applies the pattern on the text Result in console!
+	 * Forces the user to select text- and pattern-file and applies the pattern on the text Result in console!
 	 */
 	public void performCheck() {
 
 		String filepath = getTextPath("Please choose your text!");
-		String text = getTextfromFile(filepath);
+		String text = getTextFromFile(filepath);
 
 		filepath = getTextPath("Please choose your pattern!");
-		String pattern = getTextfromFile(filepath);
+		String pattern = getTextFromFile(filepath);
 		pattern = toRegEx(pattern);
 
 		if (text.isEmpty() || text.isBlank()) {
@@ -81,7 +81,7 @@ public class Aufgabe1 {
 	 * @param path The Path of the File which should get loaded.
 	 * @return The content of the file as a String
 	 */
-	private String getTextfromFile(String path) {
+	private String getTextFromFile(String path) {
 
 		if (path.isBlank() || path.isEmpty()) {
 			return "";
@@ -95,7 +95,7 @@ public class Aufgabe1 {
 	}
 
 	/**
-	 * Converts the given patternstring into a regular expression
+	 * Converts the given pattern-string into a regular expression
 	 *
 	 * @param patternstring The pattern which should be converted into a RegEx
 	 * @return The created RegEx as a String
