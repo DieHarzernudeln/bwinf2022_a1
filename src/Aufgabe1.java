@@ -19,6 +19,11 @@ public class Aufgabe1 {
 	public static void main(String[] args) {
 
 		Aufgabe1 task = new Aufgabe1();
+
+		try {
+			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception e) { System.err.println("Error: " + e.getMessage()); }
+
 		task.performCheck();
 
 	}
@@ -61,6 +66,7 @@ public class Aufgabe1 {
 	 * @return The {@link Path} of the selected file as a string
 	 */
 	private String getTextPath(String dialogueTitle) {
+
 		JFileChooser chooser = new JFileChooser();
 		chooser.setApproveButtonText("Load");
 		chooser.setDialogTitle(dialogueTitle);
