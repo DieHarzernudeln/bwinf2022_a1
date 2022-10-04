@@ -21,7 +21,7 @@ public class Aufgabe1 {
 		Aufgabe1 task = new Aufgabe1();
 
 		try {
-			UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) { System.err.println("Error: " + e.getMessage()); }
 
 		task.performCheck();
