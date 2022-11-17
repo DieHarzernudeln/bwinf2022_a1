@@ -29,12 +29,6 @@ public class Aufgabe1 {
 	}
 
 	/**
-	 * Dummy constructor
-	 */
-	public Aufgabe1() {
-	}
-
-	/**
 	 * Forces the user to select text and pattern file and applies the pattern to the text result in console.
 	 */
 	public void performCheck() {
