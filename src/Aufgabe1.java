@@ -29,7 +29,7 @@ public class Aufgabe1 {
 	}
 
 	/**
-	 * Forces the user to select text and pattern file and applies the pattern to the text result in console.
+	 * Forces the user to select text and pattern file and applies the pattern to the text - result in console.
 	 */
 	public void performCheck() {
 
@@ -40,11 +40,13 @@ public class Aufgabe1 {
 		String pattern = getTextFromFile(filePath);
 		pattern = toRegEx(pattern);
 
-		if (text.isEmpty() || text.isBlank()) {
+		if (text.isBlank()) {
 			System.err.println("Invalid Text File.");
+			return;
 		}
-		if (pattern.isEmpty() || pattern.isBlank()) {
+		if (pattern.isBlank()) {
 			System.err.println("Invalid Pattern File.");
+			return;
 		}
 
 		Matcher m = Pattern.compile(pattern, Pattern.CASE_INSENSITIVE).matcher(text);
@@ -83,14 +85,15 @@ public class Aufgabe1 {
 	 */
 	private String getTextFromFile(String path) {
 
-		if (path.isBlank() || path.isEmpty()) {
+		if (path.isBlank()) {
 			return "";
 		}
 
 		try {
 			return Files.readString(Path.of(path));
 		} catch (IOException e) {
-			throw new RuntimeException(e);
+			System.err.println("Couldn't read file "+ path);
+			return "";
 		}
 	}
 
@@ -101,7 +104,6 @@ public class Aufgabe1 {
 	 * @return The created RegEx as a string
 	 */
 	private String toRegEx(String patternString) {
-
 		return patternString.replaceAll("_", "\\\\p{Alnum}+");
 	}
 
